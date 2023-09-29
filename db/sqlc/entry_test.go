@@ -9,9 +9,9 @@ import (
 	"gitlab.com/hbang3/simple_bank/db/util"
 )
 
-func createRandomEntry(t *testing.T, account Account) Entry {
+func createRandomEntry(t *testing.T, a Account) Entry {
 	arg := CreateEntryParams{
-		AccountID: account.ID,
+		AccountID: a.ID,
 		Amount:    util.RandomMoney(),
 	}
 
@@ -27,13 +27,13 @@ func createRandomEntry(t *testing.T, account Account) Entry {
 }
 
 func TestCreateEntry(t *testing.T) {
-	account := createRandomAccount(t)
-	createRandomEntry(t, account)
+	a := createRandomAccount(t)
+	createRandomEntry(t, a)
 }
 
 func TestGetEntry(t *testing.T) {
-	account := createRandomAccount(t)
-	entry1 := createRandomEntry(t, account)
+	a := createRandomAccount(t)
+	entry1 := createRandomEntry(t, a)
 	entry2, err := testQueries.GetEntry(context.Background(), entry1.ID)
 	require.NoError(t, err)
 	require.NotEmpty(t, entry1)
@@ -45,13 +45,13 @@ func TestGetEntry(t *testing.T) {
 }
 
 func TestListEntries(t *testing.T) {
-	account := createRandomAccount(t)
+	a := createRandomAccount(t)
 	for i := 0; i < 10; i++ {
-		createRandomEntry(t, account)
+		createRandomEntry(t, a)
 	}
 
 	arg := ListEntriesParams{
-		AccountID: account.ID,
+		AccountID: a.ID,
 		Limit:     5,
 		Offset:    5,
 	}
