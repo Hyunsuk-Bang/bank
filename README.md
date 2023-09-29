@@ -24,3 +24,13 @@ Simple Bank Project to practice skills
     
 * migrate down DB
     make migrate_down
+
+### Topic Covered
+1. PostgreSQL
+2. CRUD with GO
+3. Testing for CRUD
+4. ACID Properties
+    - Atomicity
+    - Consistency
+    - Isolation
+    - Durability
