@@ -7,7 +7,8 @@ Simple Bank Project to practice skills
 
 ### Dependencies
 * migrate-golang - tools for DB migration
-* sqlc - CRUD code generator for golang
+* sqlc - CRUD code generator for golang 
+* viper - Environment Variable management
 
 ### Executing program
 * spawn postgres
